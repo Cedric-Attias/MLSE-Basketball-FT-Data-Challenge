@@ -17,5 +17,13 @@ About 40% of the data provided was discarded for this trajectory model since the
 
 All trajectories that were deemed unrealistic (with flight apexes greater than 20 ft, not reaching the known final position, or hitting the ground) were discarded and only 71 trajectories were deemed valid. An exmaple of these trajectories is shown below, which were first extracted from the basketBallTrajectoryCalculation.m script which calcualtes the trajectories which are then used as inputs for the shotChart.m script.
 
-# Shot Chart (shotChart.m) Output
+# Shot Chart (shotChart.m output) 
+ We can see that increasing the shot arc really does lead to greater shot success (even the optimizer agrees). Conclusions like these can be taken directly to players and coaches to help them increase their performance. 
 ![shotChart_Subject01](https://github.com/user-attachments/assets/0c291b37-64e7-4592-a18d-04d84a994793)
+
+# Individual Shot Analysis (basketBallTrajectoryCalculation.m output for 1 shot)
+
+The newest feature allows us to visualize the various conditions that the ball expereinces in a useful 3D tool! We can see the shot launch and entry angles, in addition to the exit velocity (including the axial components), shot result and total shot time. This tool can be used by teams, atheletes, coaches and trainers to evaluate their freethrow shooting performance and allow the player to re-live their shots after the games. It can ultimately be used to help players gain a better understanding of why their shots miss (or even go in) and how they can imprave. For example, if a player is consistently short on tehir freethrows, that would be reflected by a smaller magnitude of inital exit velocity in the x-direction (towards the basket), indicating a need for them to add more power to their shot, without compromising the arc of the shot (since we can see from the shot chart that increasing the shot arc really does lead to greater shot success).
+
+![Individual Shot Demo 2](https://github.com/user-attachments/assets/af339422-aa45-4678-9905-ff33e9d5b339)
+
