@@ -1,5 +1,5 @@
 # MLSE-Basketball-FT-Data-Challenge
-A basketball free throw physics based trajectory model, which will eventually be able to predict basektabll freethrow (FT) success using ML.
+A basketball free throw physics based trajectory model, that uses optimization to calculate trajectory and will eventually be able to predict basektabll freethrow (FT) success using ML.
 
 # SPL Open Data
 The SPL Open Data repository acts as a collection of biomechanics datasets collected by Maple Leaf Sports & Entertainment's (MLSE) Sport Performance Lab (SPL) in Toronto, Ontario, Canada. Through the open-sourcing of this data, SPL's goal is to provide raw markerless motion capture data typically used by sports biomechanists to the general public in an effort to improve data equity and analytical biomechanical skills in the community.
