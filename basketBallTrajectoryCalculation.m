@@ -246,19 +246,7 @@ function FTTrajectory(InputFile)
     
     % Simulate the optimized trajectory
     [t, sol] = simulate_trajectory(optimized_vel, initial_pos, t_span, m, g);
-    
-    % % Plot the resulting 3D trajectory (CHECK)
-    % figure;
-    % plot3(sol(:,1), sol(:,2), sol(:,3), 'LineWidth', 2);
-    % hold on;
-    % plot3(final_pos(1), final_pos(2), final_pos(3), 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r');
-    % xlabel('X (Depth)');
-    % ylabel('Y (Horizontal)');
-    % zlabel('Z (Vertical)');
-    % title('3D Trajectory Optimization');
-    % grid on;
-    % legend('Trajectory', 'Final Position');
-    % hold off;
+
     
     %% Step 7: Append previously known data
     additionalTime = trimmedBallData.time{1,1}*0.001; %Seconds
@@ -330,6 +318,9 @@ function FTTrajectory(InputFile)
     h = plot3(x_traj(1), y_traj(1), z_traj(1), 'ro', 'MarkerFaceColor',  [0.8500 0.3250 0.0980], 'MarkerSize', 30); 
     
     result = trimmedBallData.result{1,1};
+    exitVelocity = norm(initial_vel);
+    launchAngle = atan2(vz0, vx0)*(180/pi);
+    entryAngle = trimmedBallData.entryAngle{1,1};
     txt = [];
     txt1 = [];
     txt2 = [];
@@ -353,11 +344,19 @@ function FTTrajectory(InputFile)
     end
     
     if strcmp(result, 'missed')
-        txt = text(15, -2, 3, result,'FontSize', 20, 'Color', 'r');
+        txt = text(15, -4, 5, result,'FontSize', 20, 'Color', 'r');
         txt2 = text(x_f, y_f, z_f, 'X', 'FontSize', 20, 'FontWeight', 'bold', 'Color', 'red');
+        str3 = sprintf('Exit Velocity [x,y,z] (ft/s): %.1f [%.1f, %.1f, %.1f]',exitVelocity, vx0,vy0,vz0);
+        str4 = sprintf('Launch/Entry Angles (deg): %.1f / %.1f',launchAngle,entryAngle);
+        txt3 = text(15, -4, 4, str3,'FontSize', 20, 'Color', 'black');
+        txt4 = text(15, -4, 3, str4,'FontSize', 20, 'Color', 'black');
     else
-        txt = text(15, -2, 3, result,'FontSize', 20, 'Color', 'green');
+        txt = text(15, -4,5, result,'FontSize', 20, 'Color', 'green');
         txt2 = text(x_f, y_f, z_f, 'X', 'FontSize', 20, 'FontWeight', 'bold', 'Color', 'red');
+        str3 = sprintf('Exit Velocity [x,y,z] (ft/s): %.1f [%.1f, %.1f, %.1f]',exitVelocity, vx0,vy0,vz0);
+        str4 = sprintf('Launch/Entry Angles (deg): %.1f / %.1f',launchAngle,entryAngle);
+        txt3 = text(15, -4, 4, str3,'FontSize', 20, 'Color', 'black');
+        txt4 = text(15, -4, 3, str4,'FontSize', 20, 'Color', 'black');
     end
     pause(1);  % Pause to create animation effect
     
