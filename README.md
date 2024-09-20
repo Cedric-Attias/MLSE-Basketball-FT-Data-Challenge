@@ -17,4 +17,5 @@ About 40% of the data provided was discarded for this trajectory model since the
 
 All trajectories that were deemed unrealistic (with flight apexes greater than 20 ft, not reaching the known final position, or hitting the ground) were discarded and only 71 trajectories were deemed valid. An exmaple of these trajectories is shown below, which were first extracted from the basketBallTrajectoryCalculation.m script which calcualtes the trajectories which are then used as inputs for the shotChart.m script.
 
+#Shot Chart (shotChart.m) Output
 ![shotChart_Subject01](https://github.com/user-attachments/assets/0c291b37-64e7-4592-a18d-04d84a994793)
